@@ -1,0 +1,138 @@
+#page-orphanage {
+    display: flex;
+    min-height: 100vh;
+}
+
+main {
+   flex: 1; 
+}/*tirando o espaço ocupado pela barra lateral azul, o flex: 1; pega o espaço
+restante e coloca todo o conteúdo restante no meio da página */
+
+/* details - são detalhes da página, fundo meio azulado, depois outro fundo branco e a imagem*/
+
+.orphanage-details /*o ponto é para referenciar a classe*/{
+    width: 70rem;
+    margin: 6.4rem auto;
+    background: white;
+    border: 1px solid #d3e2e5;/*isso gera uma borda branca depois das imagens*/
+
+    border-radius: 2rem;/*arredoda a bora branca criada acima*/
+    overflow: hidden;/*ajusta o tamanho da imagem para ir até a borda arredondada*/
+}
+
+.orphanage-details > img {
+    /*aqui eu estou pegando a primeira imagem que esta no orphanage details. Para pegar
+    basta tirar o sinal de maior*/
+    width: 100%;/*expande a imagem até o total da borda*/
+    height: 30rem;
+    object-fit: cover; /*com o aumento da imagem o cover mantem a proporção da imagem original*/
+}
+
+.images {
+    display: grid;/*assim como o flex, mexe com todos os filhos dessa caixa, porém
+    ele faz uma ideia de colunas e linhas, assim é possivel posissionar uma img ao lado da outra como em um tabuleiro
+    de xadrez*/
+    grid-template-columns: repeat(6, 1fr);/*coloca as 6 imagens uma ao lado da outra, criando 6 colunas*/
+    column-gap: 1.6rem;
+    margin: 16px 40px 0;
+}
+
+.images button {
+    border: 0;/*tira a borda das imagens menores*/
+    background: none;/*tira o background das imagens menores*/
+
+    height: 8.8rem;
+    cursor: pointer;
+    border-radius: 2rem;
+
+    overflow: hidden;/*aqui é limitado o tamanho da caixa para que a imagem não sobreponha as bordas*/
+
+    opacity: 0.6;
+
+    transition: opacity 0.2s;
+}
+
+.images button:hover,
+.images button.active {
+    /*o active se refere a primeira imagem que fica abaixo da img grande*/
+    opacity: 1;
+}
+
+.images button img {
+    width: 100%;
+    height: 8.8rem;
+    object-fit: cover;
+}/*organiza as imagens como se fossem botões, abaixo da primeira foto que é maior*/
+
+.orphanage-details-content {
+    padding: 8rem; /*preenche o quadro com os seus filhos alinhando todos eles*/
+}
+
+.orphanage-details-content h1 {
+    color: #4d6f80;
+    font-size: 5.4rem;
+    line-height: 1.5;
+    margin-bottom: 0.8rem;
+}/*aqui é configurado o texto no meio "Lar das Meninas"*/
+
+.orphanage-details-content p {
+    line-height: 1.6;
+    color: #5c8599;
+    margin-top: 2.4rem;
+}/*aqui é configurado o texto logo abaixo do "Lar das Meninas" que é o texto "preste assistência a..."*/
+
+.orphanage-details-content hr {
+    width: 100%;
+    height: 1px;
+
+    border: 0;
+
+    background: #d3e2e6;
+
+    margin:6.4rem 0;/*o zero centraliza a linha*/
+}/*aqui a linha padrão gerada pelo hr abaixo do mapa é coloca mais abaixo com um espaçamento
+entre o mapa e ela*/
+
+.orphanage-details-content h2 {
+    font-size: 3.6rem;
+    line-height: 4.6rem;
+    color: #4d6f80;
+}/*aqui é configurado o box que contêm a string "Instruções para visita"*/
+
+.open-details  {
+    margin: 2.4rem;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    column-gap: 2rem;
+}/*aqui os boxes com a string "Horários de visitas" e "Atendemos ao fim de semana" são
+colocados um ao lado do outro*/
+
+.open-details div{
+    padding: 3.2rem 2.4rem;
+}/*aqui é preenchido os boxes das div em open-details, logo se tem um espaço maior entre
+os boxes e a string acima "Venha como se sentir melhor e traga..."*/
+
+.open-details img {
+    display: block;
+
+    margin-bottom: 2rem;
+}/*aqui as imagens que estão dentro o open-details são colocadas em blocos,
+ou seja a escrita vai ficar abaixo do bloco da imagem a uma distância de 2rem*/
+
+.open-details .hour {
+    background: linear-gradient(149.97deg, #E6F7FB 8.13%, #FFFFFF 92.67%);
+    border: 1px solid #B3DAE2;
+    border-radius: 20px;
+    color: #5C8599;
+}/*aqui é configurado o box hour*/
+
+.open-details .open-on-weekends {
+    background: linear-gradient(154.16deg, #EDFFF6 7.85%, #FFFFFF 91.03%);
+    border: 1px solid #A1E9C5;
+    border-radius: 20px;
+    color: #37C77F;
+}/*aqui é configurado o box com a string "Atendemos fim de semana"*/
+
+

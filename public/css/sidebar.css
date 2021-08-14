@@ -1,0 +1,39 @@
+/* asidebar é o nome dado à barrinha lateral azul.
+   É feito essa pasta separada devido ao fato de que mais de uma página do site irá utilizar dessa barra em sua interface.
+   Logo, essa prática de separação deixa o código mais limpo e arrumado.*/
+
+
+aside.sidebar {
+    position: fixed; /*vai fixar a barra azul lateral*/
+    height: 100%;
+    padding: 32px 24px;/*3.2rem 2.4rem*/
+    background: #15C3D6;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;/*aqui o justify-content:  esta dando espaço no eixo y;*/
+    align-items: center;
+}/*aqui é configurado a barra lateral azul chamada sidebar*/
+
+aside.sidebar footer button {
+    width: 48px;
+    height: 48px;
+    border: none;
+    background: #12afcb;
+    border-radius: 1.6rem;
+    cursor: pointer;/*o cursor vira uma mãozinha em cima do "ver rotas no google maps"*/
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: background-color 0.2s ;
+}/*configura o botão que fica em baixo na barra lateral esquerda azul*/
+
+aside.sidebar footer button:hover{
+    background: #17d6eb;
+}
+
+.with-sidebar {
+    padding-left: 110px;
+}/*aqui é dado um espaço entre o sidebar e as imagens*/

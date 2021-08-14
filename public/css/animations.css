@@ -1,0 +1,57 @@
+
+/* animações */
+@keyframes up {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes right {
+    from {
+        transform: translateX(-100%); /*aqui a barra azul sai da página*/
+    }
+    to {
+        transform: translateX(0); /*aqui a barra lateral azul vai aparecendo na página
+        da esquerda para a direita até a posição inicial*/
+    }
+}/*essa animação faz com que toda fez que a página iniciar
+a barra lateral azul vai sair do campo de visão da página
+e reaparecer da esquerda para a direita*/
+
+@keyframes appear {
+    from{
+        opacity: 0;
+
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+.animate-up {
+    animation-name: up;
+    animation-duration: 300ms;
+    animation-fill-mode: backwards; /*faz com que os comandos que estão no TO
+    fique no elemento aplicado*/
+}/*toda vez que eu abro a página ou atualizo, os elementos onde está
+sendo aplicado essa classe animate-up, dá uma piscada, demora um tempo para aparecer,
+tempo de 300 milisegundos*/
+
+.animate-right {
+    animation-name: right;
+    animation-duration: 300ms;
+}/*aqui é definido o nome da animação e o tempo que ela vai rodar. Essa animação
+faz com que toda vez que a página for iniciada, a barra lateral azul sai do campo de
+visão e reaparece da esquerda para a direita*/
+
+.animate-appear {
+    animation-name: appear;
+    animation-duration: 300ms;
+    animation-fill-mode: backwards;
+}/*aqui é gerado um delay na aparição do mapa*/

@@ -1,0 +1,258 @@
+<!--
+    para fazer um comentario 
+    basta usar esses caracteres
+    para iniciar e fechar
+-->
+
+<!--
+    HTML:
+        Hypertext
+            hipertextos
+
+        Markup
+            marcações (tags)
+
+        Language
+            linguagem
+-->
+
+<!--
+    uso de tags: para melhor entender parecem com funções
+    onde você abre uma e declara o que tem que ser feito
+    dentro do escopo e depois fecha. Ex.:
+    <html> abriu a tag html
+        escopo
+        ...
+    </html> fechou a tag html
+------------------------------------------------
+    é possivel abrir uma tag dentro de outra. Ex.:
+    <html>
+        <head>
+
+        </head>
+    </html>
+-->
+
+<!--
+    o HEAD é responsável por configurar o documento 
+    o BODY é responsável por mostrar a parte branca da página, ou seja, o conteúdo que será mostrado na página no navegador
+    BROWSER é o navegador
+-->
+
+<!DOCTYPE html>
+<html lang="pt_BR">
+  <!--definindo para o browser que o doc é português-->
+
+  <head>
+    <meta charset="UTF-8" />
+    <!--meta é uma tag que o seu atributo será definido na sua própria desclaração, logo não precisa de fechamento </meta>, aqui é definido o conjunto de caracteres do tipo "UTF-8"-->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--esse segundo meta é para adaptar a aplicação em dispositivos menores-->
+
+    <title>Adicionar um orfanato | Happy</title>
+    <!--responsável por dar nome a página. Ex.:
+                <title>DocumentoQualquer</title> -->
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin=""
+    />
+
+    <script
+      src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+      crossorigin=""
+    ></script>
+    <!--O link e o script é para integrar o css do mapa à página. Ambos foram pegos no site da leafletjs-->
+
+    <link rel="icon" href="./public/images/logo-icon.png" />
+    <!--aqui eu crio um relacionamento para o meu link do tipo icon (real="icon")
+            esse incone que eu quero está na pasta public/imagine (href="./public/images/logo-icon.png")
+            Isso é feito para mudar o desenho que fica do lado esquerdo do nome da página-->
+
+    <link rel="stylesheet" href="./public/css/main.css" />
+    <!--aqui o arquivo css é integrado ao html-->
+    <link rel="stylesheet" href="./public/css/animations.css" />
+    <!--aqui o arquivo css é integrado ao html-->
+    <link rel="stylesheet" href="./public/css/sidebar.css" />
+    <!--aqui o arquivo css é integrado ao html, a barra lateral azul asidebar-->
+    <link rel="stylesheet" href="./public/css/map.css" />
+    <!--aqui o arquivo css é integrado ao html, o mapa da página-->
+    <link rel="stylesheet" href="./public/css/form.css" />
+    <!--aqui o arquivo css é integrado ao html, o formulário da página-->
+    <link rel="stylesheet" href="./public/css/buttons.css" />
+    <!--aqui o arquivo css é integrado ao html, o botão da página-->
+    <link rel="stylesheet" href="./public/css/page-create-orphanage.css" />
+    <!--aqui o arquivo css é integrado ao html-->
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!--aqui definimos as fontes do texto pelo site fonts.google.com-->
+  </head>
+  <body>
+    <!--aqui a extenção Live Server identifica a tag body e vai gerar um java script dentro do documento que vai atualizar sozinho-->
+    <div id="page-create-orphanage">
+      <aside class="animate-right sidebar">
+        <!--o class é para chamar a anição right e atribuir na barra lateral azul que é o aside-->
+        <img src="./public/images/map-marker.svg" alt= "Happy">
+        
+        <footer>
+          <button onclick="history.back()"><!--ao apertar na setinha você volta para a página que estava-->
+            <img src="./public/images/arrow-back.svg" alt="Voltar">
+          </button>
+        </footer>
+      </aside>
+      <main class="animate-appear with-sidebar"><!--tem um delay para aparecer e atribuiu a função with-sidebar que da um espaço
+      entre as imagens e o sidebar, que é a barra lateral azul-->
+        <form action="">
+        <!--O form é uma tag usada para fazer um formulário-->
+
+          <fieldset>
+            <legend>Dados</legend><!--legend é apenas para definir o nome do bloco-->
+            
+            <div class="map-container">
+              <!--aqui é feito um box para o mapa do formulário com o texto de rodapé em baixo-->
+              <div id="mapid"></div>
+              
+              <!--esses inputs são para armazenar a localização do orfanato que foi adicionado após
+              o envio do formulário-->
+              <input type="hidden" name="lat">
+              <input type="hidden" name="lng">
+
+              <footer>
+                <!--essa tag footer define um rodapé que ficará abaixo do mapa-->
+                <a href="#" id="select-point">
+                <!--tag para escrever o texto desejado do rodapé-->
+                  Clique no mapa para adicionar a localização
+                </a>
+              </footer>
+
+            </div>
+            
+            <div class="input-block">
+              <!--para melhor organização do código, aqui cada campo é separado em blocos, para isso é
+              creado a classe input-block-->
+              <label for="name">Nome</label>
+              <input id="name" name="name" required/><!--o required é para que não tenha como mandar o questionário em branco-->
+              <!--a label name chama o campo de Nome, em seguida o input diz que a string digitada pertence a label name definida acima.-->
+  
+            </div>
+
+            <div class="input-block">
+              <!--para melhor organização do código, aqui cada campo é separado em blocos, para isso é
+              creado a classe input-block-->
+              <label for="lastName">Sobrenome <span>Máximo de 300 caracteres</span></label>
+              <textarea id="lastName" name="lastName" required></textarea>
+              <!--o textarea é para strings com maior número de caracteres-->
+
+            </div>
+
+            <div class="input-block">
+              <!--para melhor organização do código, aqui cada campo é separado em blocos, para isso é
+              creado a classe input-block-->
+              <label for="whatsapp">Número do whatsapp</label>
+              <input id="whatsapp" name="whatsapp" placeholder="Ex.: (XX)99999-9999" required/>
+            
+            </div>
+
+            <div class="input-block images">
+              <!--para melhor organização do código, aqui cada campo é separado em blocos, para isso é
+              creado a classe input-block-->
+              <label for="images">Foto</label>
+              
+              <div class="images-upload" id="images">
+                <!--essa div tera um comportamento diferente, podendo adicionar mais de uma imagem ao formulário-->
+
+                <div class="new-upload">
+                  <input name="images" placeholder="Cole o link da foto aqui" required/>
+                  
+                  <span onclick= "deleteField(event)">
+                    <img src="./public/images/remove-file.svg" alt="Remover foto">
+                  </span>
+                  <!--o span foi para adicionar a imagem do "X" para se remover uma foto-->
+                </div>
+
+              </div>
+
+              <button onclick="addPhotoField()" type="button">
+                <img src="./public/images/add-file.svg" alt="Nova imagem">
+              </button>
+            
+            </div>
+
+          </fieldset>
+          <!--o fieldset é um comando para separar blocos dentro de uma página.
+          Neste contexto, Dados é como se fosse um bloco e Visitação como se fosse outro.-->
+
+          <fieldset>
+            <legend>Visitação</legend><!--legend é apenas para definir o nome do bloco-->
+
+            <div class="input-block">
+              <!--para melhor organização do código, aqui cada campo é separado em blocos, para isso é
+              creado a classe input-block-->
+              <label for="instructions">Instruções</label>
+              <textarea id="instructions" name="instructions" required></textarea>
+              <!--o textarea é para strings com maior número de caracteres-->
+
+            </div>
+
+            <div class="input-block">
+              <!--para melhor organização do código, aqui cada campo é separado em blocos, para isso é
+              creado a classe input-block-->
+              <label for="opening_hours">Horário das visitas</label>
+              <input id="opening_hours" name="opening_hours"required/>
+              <!--a label name chama o campo de Nome, em seguida o input diz que a string digitada pertence a label name definida acima.-->
+  
+            </div>
+
+            <div class="input-block">
+              <!--aqui é configurado o campo da pergunta "Atende fim de semanda?". Esse box
+              tem uma funcionalidade diferente dos demais, nele há duas opções para se escolher, 
+              o mini campo do Sim e o mini campo do Não e logo embaixo, há o campo de "Confirmar"-->
+              <label for="open_on_weekends">Atende fim de semana?</label>
+              <input
+                type="hidden"
+                id="open_on_weekends"
+                name= "open_on_weekends" 
+                value="1"
+                required
+              />
+
+              <div class="button-select">
+                <button data-value="1" 
+                  onclick="toggleSelect(event)" 
+                  type="button" class="active">
+                  Sim
+                </button>
+
+                <button data-value="0" 
+                  onclick="toggleSelect(event)" 
+                  type="button">
+                  Não
+                </button>
+                <!-- o toggleSelect é para mudar a cor do quadro sim ou não com o click do usuário-->
+
+              </div>
+
+              <button type="submit" class="primary-button">
+                Confirmar
+              </button>
+
+            </div>
+
+          </fieldset>
+          <!--o fieldset é um comando para separar blocos dentro de uma página.
+          Neste contexto, Dados é como se fosse um bloco e Visitação como se fosse outro.-->
+
+        </form>      
+      </main>
+    </div>
+    <script src="./public/scripts/page-create-orphanage.js"></script>
+    <!--estou acrescentando o java script ao código para aparecer o mapa-->
+  </body>
+</html>

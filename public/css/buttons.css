@@ -1,0 +1,71 @@
+/* buttons se refere as configurações do botão usado.
+   É feito essa pasta separada devido ao fato de que mais de uma página do site irá utilizar o mapa em sua interface.
+   Logo, essa prática de separação deixa o código mais limpo e arrumado.*/
+
+/* Botão*/
+
+.primary-button {
+    /*.primary-button também pode ser usado para referenciar a mesma classe*/
+
+    margin-top: 6.4rem;
+
+    width: 100%;
+    height: 6.4rem;
+    border: 0;
+
+    cursor: pointer;
+
+    background: #3cdc8c;
+
+    border-radius: 2rem;
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: background-color .2s;
+}/*aqui é configurado o quadro verde do botão que ficará em baixo na página
+com a string "Entrar em contato"*/
+
+.primary-button:hover {
+    /*.primary-button:hover também pode ser usado para referenciar a mesma classe*/
+
+    background: #36cf82;
+}/*cor da transition*/
+
+.primary-button img {
+    /*.primary-button img também pode ser usado para referenciar a mesma classe*/
+    margin-right: 1.6rem;
+}/*aqui ocorre a separação do ícone do whatsapp e do texto "Entrar em contato"*/
+
+.button-select {
+    display: grid;/*cada box, o do Sim e o do Não, estão um abaixo do outro com a linha
+    totalmente preenchida*/
+    grid-template-columns: 1fr 1fr; /*aqui é posto um ao lado do outro, como em colunas.*/
+}/*aqui é configurado a apresentação do box, os textos já estão lado a lado, porémé necessário
+que haja o preenchimento de toda a linha,assim o box vai aparentar como os outros também.*/
+
+.button-select button {
+    height: 6.4rem;
+    background: #f5f8fa;/*cor de fundo*/
+    border: 1px solid #d3e2e5;
+    color: #5c8599;/*cor do texto*/
+    cursor: pointer;
+}/*aqui é configurado o botão select "sim ou não" da página de dados*/
+
+.button-select button.active {
+    background: #edfff6;
+    border: 1px solid #a1e9c5;
+    color: #37c77f;
+}/*aqui é configurado a aparencia do botão quando ele estiver no modo active, ou seja, quando for selecionado
+pelo usuário*/
+
+.button-select button:first-child {
+    border-radius: 2rem 0 0 2rem;
+}/*aqui é configurado as bordas do primeiro filho da div .button-select, ou seja, o box do Sim.*/
+
+.button-select button:last-child {
+    border-radius: 0 2rem 2rem 0;
+}/*aqui é configurado as bordas do último filho da div .button-select, ou seja, o box do Não.*/
+

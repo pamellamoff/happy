@@ -1,0 +1,134 @@
+/* page-landing */
+#page-landing {
+  background: linear-gradient(329.54deg, #29b6d1 0%, #00c7c7 100%);
+  text-align: center;
+  min-height: 100vh; /*colore a página toda com a cor*/
+  display: flex; /*aqui ele pega o box page-landing e o box que 
+      esta dentro do page-landing que é o container e alinha essas caixas 
+      uma ao lado da outra, todo os itens da página são alinhados no meio
+      da página*/
+} /*aqui é definido a aprarencia da página,
+  margem, onde fica o texto, e a cor
+  e se a página toda sera preenchida pela cor*/
+
+#container {
+  margin: auto; /*aqui ele vai automatizar e ajustar as margens para
+      diferentes dispositivos, colorindo a tela toda e ajustando o texto 
+      para os vários tamanhos de telas, alinhando em cima, embaixo e nas laterais.
+      O detalhe aqui é que o margin sozinho só vai alinhar as laterais, ele
+      alinha tudo se o elemento anterior a ele for flex*/
+  width: min(90%,112rem); /*aumenta a lateral da margem, ou seja, como se 
+      o texto tivesse o espaçamento de um paragráfo da margem. Se 90% dos pixels 
+      página for maior do que 112rem pega o mínimo entre eles.*/
+}
+
+.location,
+h1,
+.visit p {
+  height: 16vh; /*espaçamento estre os elementros descritos antes do colchete*/
+} /*as configurações serão feitas em todos os elementos separados
+  por vírgulas antes do colchete, ou seja, a div location, o atributo h1
+  e na div visit apenas o atributo p*/
+
+#logo {
+  animation-delay: 50ms;
+} /*cada um dos itens tera uma propriedade própria de tempo para aparecer*/
+
+#location {
+  animation-delay: 100ms;
+} /*cada um dos itens tera uma propriedade própria de tempo para aparecer*/
+
+main h1 {
+  animation-delay: 150ms;
+} /*cada um dos itens tera uma propriedade própria de tempo para aparecer*/
+
+.visit p {
+  animation-delay: 200ms;
+} /*cada um dos itens tera uma propriedade própria de tempo para aparecer*/
+
+.visit a {
+  width: 8rem; /*define o comprimento do botão, da caixinha amarela*/
+  height: 8rem; /*define a altura do botão*/
+  background: #ffd666; /*define a cor da caixinha do botão*/
+
+  border: none;
+  border-radius: 3rem; /*define o quão arredondado a borda será*/
+
+  display: flex; /*colocou o item de que tem dentro de .visit a, que é a imagem da setinha
+    e colocou dentro do box amarelo*/
+  align-items: center; /*alinha o item que está dentro de .visit a, 
+    no caso, a imagem da seta, e coloca isso no meio a esquerda do box amarelo*/
+  justify-content: center; /*coloca a setinha no centro exato do bbbox amarelo*/
+
+  margin: auto;
+
+  transition: background 200ms; /*vai fazer uma transição mais suave para mudar de cor 
+  na função abaixo .visit a:hover*/
+
+  animation-delay: 250ms; /*cada um dos itens tera uma propriedade própria de tempo para aparecer*/
+}
+
+.visit a:hover {
+  background: #96feff; /*muda a cor do box amarelo quando o mouse estiver
+  descansando em cima dele*/
+}
+
+/* desktop version */
+@media (min-width: 760px) {
+  #container {
+    padding: 5rem 2rem;
+    /*shorthand background: image repeat position / size*/
+    background: url("../images/bg.svg") no-repeat 65% / clamp(30rem, 34vw, 40rem);/*os dois pontinhos é para sair da pasta
+    e entrar em uma outra, onde no caso, esta a imagem que desejo. O 70% é a distância da margem da esquerda, ou seja, quão 
+    a direita você quer. O clamp define o min, ideal e max da imagem.*/
+  }/*aqui eu estou colocando a imagem das crianças na página.*/
+
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  } /*alinha o cabeçalho do site, que é a logo e a carinha amarela,
+    para o centro do lado esquerdo*/
+
+  .location,
+  h1,
+  .visit p {
+    height: initial;
+    text-align: initial;
+  } /*atribui as variaveis antes do colchete os valores 
+    iniciais antes de quando foram especificados.*/
+
+  .location {
+    text-align: right;
+    font-size: 2.4rem;
+    line-height: 1.5;
+  } /*mandou o texto da localização para o lado direito da página e justificou ele .*/
+
+  main h1 {
+    font-weight: bold; /* negrito */
+    line-height: .88; /*deixa as linhas do texto h1 mais próximas,
+        ou seja, diminui o espaçamento entre linhas.*/
+    
+    margin: clamp(10%, 9vh, 12%) 0 3rem; /*a função clamp ajuda a definir
+        os valores max, min e o ideal para a margem separando a logo do h1
+        e o h1 do visit p*/
+
+    width: min(200px, 80%);
+  }
+
+  .visit {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+  }
+
+  .visit p {
+    font-size: 1.5rem;
+    line-height: 1.5;/*espaçamento da linha*/
+    width: clamp(20rem, 20vw, 30rem);
+  }
+
+  .visit a {
+      margin: initial;
+  }
+}

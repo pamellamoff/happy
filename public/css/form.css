@@ -1,0 +1,139 @@
+/* form se refere as configurações do formulário usado.
+   É feito essa pasta separada devido ao fato de que mais de uma página do site irá utilizar o mapa em sua interface.
+   Logo, essa prática de separação deixa o código mais limpo e arrumado.*/
+
+/*formulário*/
+
+form {
+    /*referenciando a tag form que é o formulário da página*/
+    width: 70rem;
+    margin: 6.4rem auto;
+    background: white;
+    border: 1px solid #d3e2e5;/*isso gera uma borda branca depois das imagens*/
+
+    border-radius: 2rem;/*arredoda a bora branca criada acima*/
+    overflow: hidden;/*ajusta o tamanho da imagem para ir até a borda arredondada*/
+
+    padding: 8rem; /*preenche o quadro com os seus filhos alinhando todos eles*/
+    
+}/*aqui é configurado a interface do formulário*/
+
+fieldset {
+    border: 0;
+}/*aqui a linha preta que circunda o mapa e a Visitação são retiradoas.*/
+
+fieldset + fieldset {
+    margin-top: 8rem;
+}/*essa escrita permite que eu altere apenas o irmão que possui um anterior a ele, ou seja, dentro do fieldset
+existem dois filhos, o primeiro Dados, o segundo Visitação, com essa escrita eu altero
+apenas o irmão do primeiro, ou seja, o segundo que é a Visitação*/
+
+fieldset legend {
+    
+    width: 100%;
+
+    font-size: 3.2rem;
+    line-height: 1.5;
+
+    color: #4D6F80;
+    font-weight: 700;
+
+    border-bottom: 1px solid #D3E2E5;/*passa a ter uma linha abaixo do nome Dados*/
+    margin-bottom: 4rem;/*ajusta os espaços que sobram fora do box*/
+    padding: 2.4rem;/*ajusta os espaços que sobram dentro do box*/
+
+}/*aqui é configurado a aparencia do box do formulário, ou seja, a parte de
+Dados e a parte da Visitação*/
+
+.input-block + .input-block {
+    margin-top: 2.4rem;
+}/*aqui também é utilizado a técnica que alterar apenas o irmão que possue um anterior a ele. Nesse
+caso é dado um espaçamento entre o irmão anterior e ele. Ou seja, agora há um espaço entre o campo
+Nome, Sobrenome, Número de whatsapp e os demais.*/
+
+.input-block label {
+    color: #8FA7B3;
+    border-radius: .8rem;
+    line-height:  1.5rem;
+    font-weight: 600;
+}
+
+.input-block label span{
+    font-size: 1.4rem;
+    color: #8FA7B3;
+    margin-left: 2.4rem;
+    line-height: 1.5rem;
+}
+
+.input-block input,
+.input-block textarea {
+    width: 100%; /*aqui cada campo vai ocupar o total de espaço da linha*/
+
+    background: #f5f8fa;
+    border: 1px solid #d3e2e5;
+    border-radius: 2rem;
+
+    color: #5c8599;
+    /*outline: none; esse comando tira a linha preta que indica que o campo está selecionado,
+    o que reduz a acessibilidade*/
+}
+
+.input-block input {
+    height: 6.4rem;/*aqui é ajustado o tamanho visual do campo nome*/
+    padding: 0 1.6rem;/*o padding configura o campo que o usuário poderá digitar o nome*/
+}
+
+.input-block input:valid,
+.input-block textarea:valid {
+    border: 1px solid #a1e9c5
+}/*quando o campo tiver no modo válidom ou seja, o usuário estiver escrevendo ele terá a cor de 
+borda diferente indicando que o campo está preenchido*/
+
+.input-block textarea {
+    height: clamp(12rem, 16rem, 24rem);/*aqui é configurado o tamanho visual do campo sobrenome, com valores
+    mínimo, ideal e máximo*/
+    resize: vertical;/*possibilidade de ajustar o campo sobrenome apenas verticalmente*/
+    padding: 1.6rem;/*o padding configura o campo que o usuário poderá digitar o sobrenome*/
+    line-height: 2.8rem;/*aqui é definido a altura da linha no campo sobrenome*/
+}
+
+.input-block.images button {
+    
+    border: 1px dashed #96d2f0;
+    width: 100%; /*aqui cada campo vai ocupar o total de espaço da linha*/
+
+    background: #f5f8fa;
+    
+    height: 6.4rem;/*aqui é ajustado o tamanho visual do campo nome*/
+    padding: 0 1.6rem;/*o padding configura o campo que o usuário poderá digitar o nome*/
+    margin-top: 2.4rem;
+    border-radius: 2rem;
+
+    cursor: pointer;
+}/*aqui é configurado o campo para adicionar uma imagem ao formulário*/
+
+.new-upload {
+    position: relative;
+}/*aqui é configurado o box para colocar a imagem na página de Dados*/
+
+.new-upload + .new-upload {
+    margin-top: 2.4rem; 
+ }/*aqui é colocado um espaço entre o field das imagens adicionadas no formulário*/
+
+.new-upload span {
+    position: absolute;
+    right: 12px;
+    bottom: 14px;
+
+    /*Retangulo do span*/
+
+    background: #FFFFFF;
+    border: 1px solid #D3E2E5;
+    box-sizing: border-box;
+    display: flex;
+    border-radius: 10px;
+    padding: .6rem;
+    
+    cursor: pointer;
+}/*aqui é configurado o botão para remover uma imagem adicionada na página de Dados*/
+

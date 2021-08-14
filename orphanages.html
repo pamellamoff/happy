@@ -1,0 +1,127 @@
+<!--
+    para fazer um comentario 
+    basta usar esses caracteres
+    para iniciar e fechar
+-->
+
+<!--
+    HTML:
+        Hypertext
+            hipertextos
+
+        Markup
+            marcações (tags)
+
+        Language
+            linguagem
+-->
+
+<!--
+    uso de tags: para melhor entender parecem com funções
+    onde você abre uma e declara o que tem que ser feito
+    dentro do escopo e depois fecha. Ex.:
+    <html> abriu a tag html
+        escopo
+        ...
+    </html> fechou a tag html
+------------------------------------------------
+    é possivel abrir uma tag dentro de outra. Ex.:
+    <html>
+        <head>
+
+        </head>
+    </html>
+-->
+
+<!--
+    o HEAD é responsável por configurar o documento 
+    o BODY é responsável por mostrar a parte branca da página, ou seja, o conteúdo que será mostrado na página no navegador
+    BROWSER é o navegador
+-->
+
+<!DOCTYPE html>
+<html lang="pt_BR">
+  <!--definindo para o browser que o doc é português-->
+
+  <head>
+    <meta charset="UTF-8" />
+    <!--meta é uma tag que o seu atributo será definido na sua própria desclaração, logo não precisa de fechamento </meta>, aqui é definido o conjunto de caracteres do tipo "UTF-8"-->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--esse segundo meta é para adaptar a aplicação em dispositivos menores-->
+
+    <title>Localize um Orfanato | Happy</title>
+    <!--responsável por dar nome a página. Ex.:
+                <title>DocumentoQualquer</title> -->
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin=""
+    />
+
+    <script
+      src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+      crossorigin=""
+    ></script>
+    <!--O link e o script é para integrar o css do mapa à página. Ambos foram pegos no site da leafletjs-->
+
+    <link rel="icon" href="./public/images/logo-icon.png" />
+    <!--aqui eu crio um relacionamento para o meu link do tipo icon (real="icon")
+            esse incone que eu quero está na pasta public/imagine (href="./public/images/logo-icon.png")
+            Isso é feito para mudar o desenho que fica do lado esquerdo do nome da página-->
+
+    <link rel="stylesheet" href="./public/css/main.css" />
+    <!--aqui o arquivo css é integrado ao html-->
+    <link rel="stylesheet" href="./public/css/animations.css" />
+    <!--aqui o arquivo css é integrado ao html-->
+    <link rel="stylesheet" href="./public/css/page-orphanages.css" />
+    <!--aqui o arquivo css é integrado ao html-->
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!--aqui definimos as fontes do texto pelo site fonts.google.com-->
+  </head>
+  <body>
+    <!--aqui a extenção Live Server identifica a tag body e vai gerar um java script dentro do documento que vai atualizar sozinho-->
+    <div id="page-orphanages">
+      <aside class="animate-right">
+        <!--o class é para chamar a anição right e atribuir na barra lateral azul que é o aside-->
+        <!--aqui vai ser a barra azul lateral-->
+        <header>
+          <img src="./public/images/map-marker.svg" alt="Happy" />
+          <!--essa imagem é a logo amarela que fica da barra azul lateral-->
+          <h2>Escolha um orfanato no mapa</h2>
+
+          <p>Muitas crianças estão esperando sua visita :)</p>
+        </header>
+
+        <footer>
+          <!--essa tag define um rodapé-->
+          <strong>Minas Gerais</strong>
+          <p>João Monlevade</p>
+        </footer>
+      </aside>
+
+      <div id="mapid" class="animate-appear">
+        <!--aqui ira conter o mapa-->
+      </div>
+
+      <a
+        href="create-orphanage.html"
+        class="create-orphanage"
+        title="Cadastre um orfanato"
+      >
+        <img src="./public/images/plus.svg" alt="Criar orfanato" />
+      </a>
+    </div>
+
+    <script src="./public/scripts/page-orphanages.js"></script>
+    <!--estou acrescentando o java script ao código para aparecer o mapa-->
+
+  </body>
+</html>

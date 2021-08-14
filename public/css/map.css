@@ -1,0 +1,32 @@
+/* map se refere as configurações do mapa usado.
+   É feito essa pasta separada devido ao fato de que mais de uma página do site irá utilizar o mapa em sua interface.
+   Logo, essa prática de separação deixa o código mais limpo e arrumado.*/
+
+/* map*/
+.map-container {
+    margin-top: 6.4rem;
+    background: #e6f7fb;
+    border: 1px solid #DDE3F0;
+    border-radius: 2rem;
+}/*aqui é configurado os detalhes do fundo do mapa*/
+
+#mapid {
+    width: 100%;
+    height: 28rem;
+}/*cria o box do mapa e define tamanho*/
+
+.map-container footer {
+    padding: 2rem 0;
+    text-align: center;
+}/*alinha a string "ver rotas no google maps" dentro do quadro do mapa*/
+
+.map-container footer a {
+    color: #0089a5;
+    text-decoration: none; /*retira a linha padrão debaixo do "Ver rotas no google maps"*/
+    font-weight: 700;
+}/*aqui é ajustado o rodapé abaixo do mapa*/
+
+.map-container .leaflet-container {
+    border-bottom: 1px solid #dde3f0;
+    border-radius: 2rem;
+}/*aqui é ajustado a borda do mapa*/

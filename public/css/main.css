@@ -1,0 +1,46 @@
+/*aqui essa é a forma de se fazer um comentário*/
+/*o comando segue a regra da cascata, o último comando que é levado em conta*/
+
+/**
+#body {
+    color: red;
+}essa declaração ganha prioridade 
+em relação a desclaração de baixo
+
+body {
+    color: green;
+}*/
+* {
+  margin: 0; /*tira os espaços entre a margem e o conteúdo da página*/
+  padding: -0; /*tira o preenchimento*/
+  box-sizing: border-box; /*na hora de adicionar o padding, ele não vai ultrapassar o valor estipulado na função clamp*/
+} /*seletor universal*/
+
+body {
+  height: 100vh; /*faz com que a cor pegue a tela inteira*/
+  color: white; /*cor de texto de tudo que esta dentro do body vai ser branco*/
+  background: #ebf2f5/*cor de fundo da página que entra em contato com o orfanato*/ 
+}
+
+/*as unidades EM e REM são unidades de medidas de pixels.
+O pixel é fixo, mas o EM e o REM sempre refletem em alguma coisa
+como a caixa a qual eles pertecem. No caso, o HTML
+*/
+:root {
+  font-size: 62.5%;
+} /*aqui ele busca no root o tamanho da fonte e joga para 10 px.
+Pode ser feito em px ou em porcentagem, por padrão o pixel é 
+igual a 18, 62,5% equivale a 10px.
+Assim, basta mudar o valor do font-size para mudar todos os textos*/
+
+body,
+input,
+button,
+textarea {
+  font-size: 1.8rem; /*tamanho da fonte*/
+  line-height: 1; /*espaçamento entre textos*/
+  font-weight: 400; /*espesura da fonte, o quão grossa ela será, negrito*/
+  font-family: "Nunito", sans-serif;
+  /*todo esse trecho pode ser escrito assim: font: 400 18px/1 'Nunito', sans-serif*/
+} /*aqui eu estou fazendo essas modificações para todos os atributos 
+do antes do colchete*/

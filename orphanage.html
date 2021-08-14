@@ -1,0 +1,185 @@
+<!--
+    para fazer um comentario 
+    basta usar esses caracteres
+    para iniciar e fechar
+-->
+
+<!--
+    HTML:
+        Hypertext
+            hipertextos
+
+        Markup
+            marcações (tags)
+
+        Language
+            linguagem
+-->
+
+<!--
+    uso de tags: para melhor entender parecem com funções
+    onde você abre uma e declara o que tem que ser feito
+    dentro do escopo e depois fecha. Ex.:
+    <html> abriu a tag html
+        escopo
+        ...
+    </html> fechou a tag html
+------------------------------------------------
+    é possivel abrir uma tag dentro de outra. Ex.:
+    <html>
+        <head>
+
+        </head>
+    </html>
+-->
+
+<!--
+    o HEAD é responsável por configurar o documento 
+    o BODY é responsável por mostrar a parte branca da página, ou seja, o conteúdo que será mostrado na página no navegador
+    BROWSER é o navegador
+-->
+
+<!DOCTYPE html>
+<html lang="pt_BR">
+  <!--definindo para o browser que o doc é português-->
+
+  <head>
+    <meta charset="UTF-8" />
+    <!--meta é uma tag que o seu atributo será definido na sua própria desclaração, logo não precisa de fechamento </meta>, aqui é definido o conjunto de caracteres do tipo "UTF-8"-->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--esse segundo meta é para adaptar a aplicação em dispositivos menores-->
+
+    <title>Lar das Meninas | Happy</title>
+    <!--responsável por dar nome a página. Ex.:
+                <title>DocumentoQualquer</title> -->
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin=""
+    />
+
+    <script
+      src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+      crossorigin=""
+    ></script>
+    <!--O link e o script é para integrar o css do mapa à página. Ambos foram pegos no site da leafletjs-->
+
+    <link rel="icon" href="./public/images/logo-icon.png" />
+    <!--aqui eu crio um relacionamento para o meu link do tipo icon (real="icon")
+            esse incone que eu quero está na pasta public/imagine (href="./public/images/logo-icon.png")
+            Isso é feito para mudar o desenho que fica do lado esquerdo do nome da página-->
+
+    <link rel="stylesheet" href="./public/css/main.css" />
+    <!--aqui o arquivo css é integrado ao html-->
+    <link rel="stylesheet" href="./public/css/animations.css" />
+    <!--aqui o arquivo css é integrado ao html-->
+    <link rel="stylesheet" href="./public/css/sidebar.css" />
+    <!--aqui o arquivo css é integrado ao html, a barra lateral azul asidebar-->
+    <link rel="stylesheet" href="./public/css/map.css" />
+    <!--aqui o arquivo css é integrado ao html, o mapa da página-->
+    <link rel="stylesheet" href="./public/css/buttons.css" />
+    <!--aqui o arquivo css é integrado ao html, o botão da página-->
+    <link rel="stylesheet" href="./public/css/page-orphanage.css" />
+    <!--aqui o arquivo css é integrado ao html-->
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!--aqui definimos as fontes do texto pelo site fonts.google.com-->
+  </head>
+  <body>
+    <!--aqui a extenção Live Server identifica a tag body e vai gerar um java script dentro do documento que vai atualizar sozinho-->
+    <div id="page-orphanage">
+      <aside class="animate-right sidebar">
+        <!--o class é para chamar a anição right e atribuir na barra lateral azul que é o aside-->
+        <img src="./public/images/map-marker.svg" alt= "Happy">
+        
+        <footer>
+          <button onclick="history.back()"><!--ao apertar na setinha você volta para a página que estava-->
+            <img src="./public/images/arrow-back.svg" alt="Voltar">
+          </button>
+        </footer>
+      </aside>
+      <main class="animate-appear with-sidebar"><!--tem um delay para aparecer e atribuiu a função with-sidebar que da um espaço
+      entre as imagens e o sidebar, que é a barra lateral azul-->
+        <div class="orphanage-details">
+          <img src="./public/images/home.jpg" alt="Lar das Meninas">
+          
+          <div class="images">
+            <!--http://source.unsplash.com/random?id=1
+            com isso, estou pegando imagens aleatórias da nuvem para coloca na gallery abaixo da img principal-->
+            <button onclick="selectImage(event)" class="active" type="button">
+              <img src="http://source.unsplash.com/random?id=1" alt= "Lar das Meninas">
+            </button>
+
+            <button onclick="selectImage(event)" type="button">
+              <img src="http://source.unsplash.com/random?id=2" alt= "Lar das Meninas">
+            </button>
+
+            <button onclick="selectImage(event)" type="button">
+              <img src="http://source.unsplash.com/random?id=3" alt= "Lar das Meninas">
+            </button>
+
+            <button onclick="selectImage(event)" type="button">
+              <img src="http://source.unsplash.com/random?id=4" alt= "Lar das Meninas">
+            </button>
+
+            <button onclick="selectImage(event)" type="button">
+              <img src="http://source.unsplash.com/random?id=5" alt= "Lar das Meninas">
+            </button>
+
+            <button onclick="selectImage(event)" type="button">
+              <img src="http://source.unsplash.com/random?id=6" alt= "Lar das Meninas">
+            </button>
+
+          </div>
+
+          <div class="orphanage-details-content">
+
+            <h1>Lar das Meninas</h1>
+
+            <p>
+              Preste assistência a crianças de 06 a 15 anos que se encontre em situação de risco e/ou vulnerabilidade social.
+            </p>
+
+            <div class="map-container">
+              <div id="mapid"></div>
+              <footer>
+                <a href="">Ver rotas no Google Maps</a>
+              </footer>
+            </div>
+
+            <hr> <!--linha padrão logo abaixo "Ver rotas no google maps"-->
+
+            <h2>Instruções para visita</h2>
+
+            <p>Venha como se sentir a vontade e traga muito amor e paciência para dar.</p>
+
+            <div class="open-details">
+              <div class="hour">
+                <img src="./public/images/clock.svg" alt= "Horários">
+                Horário de visitas das 8h até 18h
+              </div>
+              <div class="open-on-weekends">
+                <img src="./public/images/info.svg" alt= "Informações">
+                Atendemos fim de semana
+              </div>
+            </div>
+
+            <button class="primary-button" type="button">
+              <img src="./public/images/whatsapp.svg" alt= "chamar no Whatsapp">
+              Entrar em contato
+            </button>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="./public/scripts/page-orphanage.js"></script>
+    <!--estou acrescentando o java script ao código para aparecer o mapa-->
+  </body>
+</html>

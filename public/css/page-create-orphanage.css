@@ -1,0 +1,25 @@
+#page-create-orphanage {
+    display: flex;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1; 
+ }/*tirando o espaço ocupado pela barra lateral azul, o flex: 1; pega o espaço
+ restante e coloca todo o conteúdo restante no meio da página */
+
+.map-container {
+    margin: 0 0 4rem;/*em cima e embaixo estão zerados e nas laterais com 4rem*/    
+}/*aqui é adicionado um espaçamento nas margens do mapa*/
+
+.map-container .leaflet-container {
+    border-radius: 20px 20px 0 0;
+}
+
+.map-container footer {
+    background: #F5F8FA;
+    border-radius: 0px 0px 20px 20px;
+}/*aqui é configurado o mini box abaixo do mapa, onde contém a string "Clique no mapa
+para adicionar a localização"*/
+
+
